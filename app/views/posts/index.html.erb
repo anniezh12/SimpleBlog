@@ -1,0 +1,28 @@
+     <h1>Blog Posts</h1>
+<div class="container">
+               <table class="table table-striped">
+               <thead>
+               <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Body</th>
+                    </tr>
+               </thead>
+               <tbody>
+               <% @posts.each do |el,i|  %>
+               <tr>
+                    <th scope="row">!<%= %></th>
+                    <td><%= el.title %></td>
+                    <td><%= el.body %></td>
+                    </tr>
+               </div>
+               <% end %>
+               </table>
+</div>
+
+<div class="container">
+     <div class="btn btn-success"> <%= link_to "Add a post", new_post_path %> </div>
+     <div class="btn btn-warning"> <%= link_to "Update a post" %></div>
+     <div class="btn btn-danger"> Delete a post</div>
+     <div class="btn btn-primary"> Main page</div>
+     </div>
