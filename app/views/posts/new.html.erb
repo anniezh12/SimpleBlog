@@ -1,4 +1,12 @@
 <h1>Add Post!</h1>
+<% if @post.errors.any? %>
+<h4><%= pluralize(@post.errors.count, "error") %> prohibited this book from being saved:</h4>
+
+    <% @post.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+<% end %>
+
 <div class= "container jumbotron">
     <%= form_for :post,url: posts_path do |f| %>
         <p>
@@ -6,8 +14,10 @@
             <%= f.text_field(:title, {:class=>'form-control'}) %>
         </p>
         <p>
+          
             <%= f.label :body %>
             <%= f.text_area(:body, {:class=> 'form-control'}) %>
+            
         </p>
         <%= f.submit({:class => 'btn btn-primary'})%>
     <% end %>    
