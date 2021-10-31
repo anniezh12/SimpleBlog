@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     end
     def new
         @post = Post.new
-
+         @message = "I am in the create new post"
         #redirect_to @posts
       
     end
@@ -20,9 +20,11 @@ class PostsController < ApplicationController
     def create
         #following statement will show params submitted by the form in posts/new.html.erb
         #render plain: params[:post].inspect
-       
+        
         @post = Post.new(post_params)
         if @post.save
+
+            
           redirect_to @post
         else
             render 'new'

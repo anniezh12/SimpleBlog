@@ -6,7 +6,7 @@
     <li><%= message %></li>
     <% end %>
 <% end %>
-
+ <%= @message%>
 <div class= "container jumbotron">
     <%= form_for :post,url: posts_path do |f| %>
         <p>
@@ -14,11 +14,14 @@
             <%= f.text_field(:title, {:class=>'form-control'}) %>
         </p>
         <p>
-          
-            <%= f.label :body %>
-            <%= f.text_area(:body, {:class=> 'form-control'}) %>
-            
+           <%= f.label :body %>
+           <%= f.text_area(:body, {:class=> 'form-control'}) %>   
         </p>
         <%= f.submit({:class => 'btn btn-primary'})%>
-    <% end %>    
+    <% end %> 
+</div>
+<p>
+<div class="container">
+     <div class="btn btn-success text-white"> <%= link_to "Add a post", new_post_path %> </div>
+     <div class="btn btn-secondary"><%= link_to "Main page", @post %></div>
 </div>
